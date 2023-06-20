@@ -17,6 +17,17 @@ function InputForm({ commentList, setCommentList }) {
             },
         ]);
         setTextareaValue('');
+        clearLS();
+    }
+
+    // Функция для сохранения введеных данных в LS
+    function saveToLS(text) {
+        localStorage.setItem('textareaValue', text);
+    }
+
+    // Функция для удаления данных из LS при сабмите формы
+    function clearLS() {
+        localStorage.setItem('textareaValue', '');
     }
 
     return (
@@ -24,15 +35,18 @@ function InputForm({ commentList, setCommentList }) {
             <form
                 onSubmit={(e) => {
                     e.preventDefault();
-                    addComment(textareaValue);
+                    addComment(localStorage.getItem('textareaValue'));
                 }}
                 className={styles.form}
             >
                 <textarea
                     className={styles.form__textarea}
                     placeholder="Enter your comment"
-                    value={textareaValue}
-                    onChange={(e) => setTextareaValue(e.target.value)}
+                    value={localStorage.getItem('textareaValue')}
+                    onChange={(e) => {
+                        setTextareaValue(e.target.value);
+                        saveToLS(e.target.value);
+                    }}
                     cols="10"
                     rows="10"
                 ></textarea>
