@@ -3,6 +3,7 @@ import './App.css';
 import { fetchComments } from './utils/Api';
 import CommentList from './components/CommentList/CommentList';
 import InputForm from './components/InputForm/InputForm';
+import ScrollButton from './components/ScrollButton/ScrollButton';
 
 function App() {
     const [commentList, setCommentList] = useState([]);
@@ -14,6 +15,7 @@ function App() {
 
     return (
         <div className="container">
+            <ScrollButton />
             <CommentList
                 commentList={commentList}
                 setCommentList={setCommentList}
