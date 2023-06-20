@@ -1,7 +1,11 @@
 import styles from './CommentItem.module.css';
 import deleteButton from './img/deleteButton.svg';
 
-function CommentItem({ id, text, user, deleteComment }) {
+function CommentItem({ id, text, user, commentList, setCommentList }) {
+    //Функция для удаления коментария
+    function deleteComment(id) {
+        setCommentList(commentList.filter((comment) => comment.id !== id));
+    }
     return (
         <div className={styles.comment}>
             <div className={styles.comment__info}>
