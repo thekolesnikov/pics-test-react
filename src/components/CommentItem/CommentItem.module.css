@@ -1,6 +1,24 @@
 .comment {
-    background-color: aqua;
+    background-color: rgb(14, 209, 209);
     padding: 10px 20px;
-    max-width: 500px;
-    text-align: center;
+    width: 500px;
+}
+
+.comment__info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.comment__user {
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: rgb(25, 171, 171);
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.comment__button {
+    background-color: rgb(14, 209, 209);
+    cursor: pointer;
 }

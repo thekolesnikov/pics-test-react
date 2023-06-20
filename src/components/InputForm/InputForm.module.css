@@ -1,0 +1,26 @@
+.form__block {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.form {
+    position: relative;
+    width: 500px;
+}
+
+.form__textarea {
+    padding: 10px 20px;
+    outline: none;
+    width: 500px;
+}
+
+.form__button {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    cursor: pointer;
+    padding: 15px 30px;
+    border-radius: 5px;
+    background-color: rgb(14, 209, 209);
+    z-index: 50;
+}
