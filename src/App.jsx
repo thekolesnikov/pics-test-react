@@ -7,19 +7,24 @@ import ScrollButton from './components/ScrollButton/ScrollButton';
 
 function App() {
     const [commentList, setCommentList] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     // Загрузка комментариев с сервера при первом рендере
     useEffect(() => {
-        fetchComments(setCommentList);
+        fetchComments(setCommentList, setIsLoading);
     }, []);
 
     return (
         <div className="container">
             <ScrollButton />
-            <CommentList
-                commentList={commentList}
-                setCommentList={setCommentList}
-            />
+            {isLoading ? (
+                'Loading'
+            ) : (
+                <CommentList
+                    commentList={commentList}
+                    setCommentList={setCommentList}
+                />
+            )}
             <InputForm
                 commentList={commentList}
                 setCommentList={setCommentList}
